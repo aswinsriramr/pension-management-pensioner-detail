@@ -35,7 +35,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http.cors().and().authorizeRequests()
-				.antMatchers("/pensionerdetail/alldetails").permitAll()
+				.antMatchers("/h2-console/*").permitAll()
 				.antMatchers("/pensionerdetail/{aadharNumber}").hasAnyRole("USER")
 				.antMatchers("/pensionerdetail/savedetails").hasAnyRole("USER")
 				.anyRequest().denyAll().and().csrf().disable();

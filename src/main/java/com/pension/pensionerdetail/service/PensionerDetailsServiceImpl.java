@@ -28,6 +28,7 @@ public class PensionerDetailsServiceImpl implements PensionerDetailsService{
 			log.info("Inside save details service");
 			if(pensionerrepo.findByAadharNumber(detail.getAadharNumber())!=null) {
 				log.info("Excpetion - Already exisits pensioner detail");
+				log.info(pensionerrepo.findByAadharNumber(detail.getAadharNumber()).toString());
 				throw new AlreadyExistsException("Details are already available for this Aadhar Number");
 			}else {
 				log.info("Pensioner is new so saving ..");
